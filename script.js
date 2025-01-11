@@ -9,6 +9,8 @@ document.getElementById('calculate').addEventListener('click', async () => {
         return;
     }
 
+    showLoader();
+
     try {
         const response = await fetch(`${API_BASE}/api/factorial`, {
             method: 'POST',
@@ -20,6 +22,22 @@ document.getElementById('calculate').addEventListener('click', async () => {
         fetchHistory();
     } catch (error) {
         console.error(error);
+        alert('Failed to calculate factorial. Please try again later.');
+    } finally {
+        hideLoader();
+    }
+});
+
+document.getElementById('clear-history').addEventListener('click', async () => {
+    if (confirm('Are you sure you want to delete all history?')) {
+        try {
+            const response = await fetch(`${API_BASE}/api/history`, { method: 'DELETE' });
+            const data = await response.json();
+            alert(data.message);
+            fetchHistory();
+        } catch (error) {
+            console.error('Error deleting history:', error);
+        }
     }
 });
 
@@ -31,8 +49,17 @@ async function fetchHistory() {
             .map((item) => `<p>${item.number}! (${item.method}) = ${item.result}</p>`)
             .join('');
     } catch (error) {
-        console.error(error);
+        console.error('Error fetching history:', error);
     }
 }
 
+function showLoader() {
+    document.getElementById('loader').classList.remove('hidden');
+}
+
+function hideLoader() {
+    document.getElementById('loader').classList.add('hidden');
+}
+
+// Fetch history on page load
 fetchHistory();

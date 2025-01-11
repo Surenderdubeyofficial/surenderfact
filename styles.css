@@ -1,212 +1,141 @@
-/* Base Styles (For Desktop / Large Screens) */
+/* Base Styling */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
-    color: #333;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9fb;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+/* Header */
+header h1 {
+  text-align: center;
+  color: #007bff;
+}
+
+/* Calculator Section */
+.calculator {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.calculator input {
+  width: 90%;
+  max-width: 300px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.calculator .methods {
+  margin: 10px 0;
+}
+
+.calculator button {
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.calculator button:hover {
+  background: #0056b3;
+}
+
+#result {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  color: #28a745;
+  font-weight: bold;
+}
+
+/* History Section */
+.history-section {
+  margin-top: 30px;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#clear-history {
+  padding: 5px 15px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#clear-history:hover {
+  background: #c82333;
+}
+
+.history-container {
+  margin-top: 15px;
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #f9f9f9;
+}
+
+.history-container p {
+  margin: 5px 0;
+}
+
+/* Loader */
+.loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ddd;
+  border-top: 5px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes spin {
+  from {
+      transform: rotate(0deg);
   }
-  
-  /* Container styles for the app */
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+  to {
+      transform: rotate(360deg);
   }
-  
-  /* Header styling */
-  .header {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  .header h1 {
-    font-size: 2.5rem;
-    color: #007bff;
-  }
-  
-  /* Form styles */
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-  }
-  
-  input[type="number"] {
-    padding: 10px;
-    font-size: 1.2rem;
-    width: 100%;
-    max-width: 400px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Result display */
-  .result {
-    margin-top: 30px;
-    text-align: center;
-  }
-  
-  .result p {
-    font-size: 1.5rem;
-    color: #333;
-  }
-  
-  /* History section */
-  .history {
-    margin-top: 50px;
-    text-align: center;
-  }
-  
-  .history table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .history th, .history td {
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #ddd;
-  }
-  
-  .history th {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .history td {
-    background-color: #f9f9f9;
-  }
-  
-  /* Footer */
-  .footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #007bff;
-    color: white;
-    margin-top: 50px;
-  }
-  
-  .footer p {
-    font-size: 1.2rem;
-  }
-  
-  /* Media Queries for Responsiveness */
-  
-  /* Small devices (Phones in portrait) */
-  @media only screen and (max-width: 600px) {
-    .container {
-      padding: 15px;
-    }
-  
-    .header h1 {
-      font-size: 2rem;
-    }
-  
-    input[type="number"] {
-      font-size: 1rem;
-      padding: 8px;
-      max-width: 100%;
-    }
-  
-    button {
-      font-size: 1rem;
-      padding: 8px 15px;
-    }
-  
-    .result p {
-      font-size: 1.2rem;
-    }
-  
-    .history th, .history td {
-      padding: 8px;
-    }
-  
-    .footer p {
-      font-size: 1rem;
-    }
-  }
-  
-  /* Medium devices (Tablets) */
-  @media only screen and (max-width: 768px) {
-    .container {
-      padding: 20px;
-    }
-  
-    .header h1 {
-      font-size: 2.2rem;
-    }
-  
-    input[type="number"] {
-      font-size: 1.1rem;
-      padding: 9px;
-      max-width: 100%;
-    }
-  
-    button {
-      font-size: 1.1rem;
-      padding: 9px 18px;
-    }
-  
-    .result p {
-      font-size: 1.3rem;
-    }
-  
-    .history th, .history td {
-      padding: 9px;
-    }
-  
-    .footer p {
-      font-size: 1.1rem;
-    }
-  }
-  
-  /* Large devices (PCs and larger screens) */
-  @media only screen and (min-width: 1024px) {
-    .container {
-      padding: 40px;
-    }
-  
-    .header h1 {
-      font-size: 2.5rem;
-    }
-  
-    input[type="number"] {
-      font-size: 1.2rem;
-      padding: 10px;
-      max-width: 400px;
-    }
-  
-    button {
-      font-size: 1.2rem;
-      padding: 10px 20px;
-    }
-  
-    .result p {
-      font-size: 1.5rem;
-    }
-  
-    .history th, .history td {
-      padding: 10px;
-    }
-  
-    .footer p {
-      font-size: 1.2rem;
-    }
-  }
-  
+}
+
+/* Footer */
+footer {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #888;
+}

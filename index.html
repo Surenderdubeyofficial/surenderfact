@@ -8,17 +8,37 @@
 </head>
 <body>
     <div class="container">
-        <h1>Factorial Calculator</h1>
-        <input type="number" id="number" placeholder="Enter a positive number">
-        <div>
-            <label><input type="radio" name="method" value="iterative" checked> Iterative</label>
-            <label><input type="radio" name="method" value="recursive"> Recursive</label>
-        </div>
-        <button id="calculate">Calculate</button>
-        <p id="result"></p>
-        <h2>Calculation History</h2>
-        <div id="history"></div>
+        <header>
+            <h1>Factorial Calculator</h1>
+        </header>
+
+        <main>
+            <section class="calculator">
+                <input type="number" id="number" placeholder="Enter a positive number">
+                <div class="methods">
+                    <label><input type="radio" name="method" value="iterative" checked> Iterative</label>
+                    <label><input type="radio" name="method" value="recursive"> Recursive</label>
+                </div>
+                <button id="calculate">Calculate</button>
+                <p id="result"></p>
+            </section>
+
+            <section class="history-section">
+                <div class="history-header">
+                    <h2>Calculation History</h2>
+                    <button id="clear-history">Clear History</button>
+                </div>
+                <div id="history" class="history-container"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Developed with ❤️ by [Your Name]</p>
+        </footer>
     </div>
+
+    <div id="loader" class="loader hidden"></div>
+
     <script src="script.js"></script>
 </body>
 </html>
