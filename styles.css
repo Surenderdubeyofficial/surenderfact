@@ -1,0 +1,212 @@
+/* Base Styles (For Desktop / Large Screens) */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+  }
+  
+  /* Container styles for the app */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Header styling */
+  .header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .header h1 {
+    font-size: 2.5rem;
+    color: #007bff;
+  }
+  
+  /* Form styles */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  input[type="number"] {
+    padding: 10px;
+    font-size: 1.2rem;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Result display */
+  .result {
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  .result p {
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  /* History section */
+  .history {
+    margin-top: 50px;
+    text-align: center;
+  }
+  
+  .history table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .history th, .history td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  .history th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .history td {
+    background-color: #f9f9f9;
+  }
+  
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #007bff;
+    color: white;
+    margin-top: 50px;
+  }
+  
+  .footer p {
+    font-size: 1.2rem;
+  }
+  
+  /* Media Queries for Responsiveness */
+  
+  /* Small devices (Phones in portrait) */
+  @media only screen and (max-width: 600px) {
+    .container {
+      padding: 15px;
+    }
+  
+    .header h1 {
+      font-size: 2rem;
+    }
+  
+    input[type="number"] {
+      font-size: 1rem;
+      padding: 8px;
+      max-width: 100%;
+    }
+  
+    button {
+      font-size: 1rem;
+      padding: 8px 15px;
+    }
+  
+    .result p {
+      font-size: 1.2rem;
+    }
+  
+    .history th, .history td {
+      padding: 8px;
+    }
+  
+    .footer p {
+      font-size: 1rem;
+    }
+  }
+  
+  /* Medium devices (Tablets) */
+  @media only screen and (max-width: 768px) {
+    .container {
+      padding: 20px;
+    }
+  
+    .header h1 {
+      font-size: 2.2rem;
+    }
+  
+    input[type="number"] {
+      font-size: 1.1rem;
+      padding: 9px;
+      max-width: 100%;
+    }
+  
+    button {
+      font-size: 1.1rem;
+      padding: 9px 18px;
+    }
+  
+    .result p {
+      font-size: 1.3rem;
+    }
+  
+    .history th, .history td {
+      padding: 9px;
+    }
+  
+    .footer p {
+      font-size: 1.1rem;
+    }
+  }
+  
+  /* Large devices (PCs and larger screens) */
+  @media only screen and (min-width: 1024px) {
+    .container {
+      padding: 40px;
+    }
+  
+    .header h1 {
+      font-size: 2.5rem;
+    }
+  
+    input[type="number"] {
+      font-size: 1.2rem;
+      padding: 10px;
+      max-width: 400px;
+    }
+  
+    button {
+      font-size: 1.2rem;
+      padding: 10px 20px;
+    }
+  
+    .result p {
+      font-size: 1.5rem;
+    }
+  
+    .history th, .history td {
+      padding: 10px;
+    }
+  
+    .footer p {
+      font-size: 1.2rem;
+    }
+  }
+  
