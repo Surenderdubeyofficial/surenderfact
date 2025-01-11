@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:5000';
+const API_BASE = 'https://factorial-calculator.onrender.com';
 
 document.getElementById('calculate').addEventListener('click', async () => {
     const number = parseInt(document.getElementById('number').value);
