@@ -9,8 +9,6 @@ document.getElementById('calculate').addEventListener('click', async () => {
         return;
     }
 
-    showLoader();
-
     try {
         const response = await fetch(`${API_BASE}/api/factorial`, {
             method: 'POST',
@@ -22,22 +20,6 @@ document.getElementById('calculate').addEventListener('click', async () => {
         fetchHistory();
     } catch (error) {
         console.error(error);
-        alert('Failed to calculate factorial. Please try again later.');
-    } finally {
-        hideLoader();
-    }
-});
-
-document.getElementById('clear-history').addEventListener('click', async () => {
-    if (confirm('Are you sure you want to delete all history?')) {
-        try {
-            const response = await fetch(`${API_BASE}/api/history`, { method: 'DELETE' });
-            const data = await response.json();
-            alert(data.message);
-            fetchHistory();
-        } catch (error) {
-            console.error('Error deleting history:', error);
-        }
     }
 });
 
@@ -46,20 +28,37 @@ async function fetchHistory() {
         const response = await fetch(`${API_BASE}/api/history`);
         const history = await response.json();
         document.getElementById('history').innerHTML = history
-            .map((item) => `<p>${item.number}! (${item.method}) = ${item.result}</p>`)
+            .map((item) => `
+                <p>
+                    ${item.number}! (${item.method}) = ${item.result} 
+                    <button onclick="deleteHistory(${item.id})">Delete</button>
+                </p>`)
             .join('');
     } catch (error) {
-        console.error('Error fetching history:', error);
+        console.error(error);
     }
 }
 
-function showLoader() {
-    document.getElementById('loader').classList.remove('hidden');
+async function deleteHistory(id) {
+    try {
+        await fetch(`${API_BASE}/api/history/${id}`, {
+            method: 'DELETE',
+        });
+        fetchHistory();  // Refresh the history list after deletion
+    } catch (error) {
+        console.error(error);
+    }
 }
 
-function hideLoader() {
-    document.getElementById('loader').classList.add('hidden');
-}
+document.getElementById('clear-all-history').addEventListener('click', async () => {
+    try {
+        await fetch(`${API_BASE}/api/history`, {
+            method: 'DELETE',
+        });
+        fetchHistory();  // Refresh the history list after clearing all
+    } catch (error) {
+        console.error(error);
+    }
+});
 
-// Fetch history on page load
-fetchHistory();
+fetchHistory();  // Load history on page load
